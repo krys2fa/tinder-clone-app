@@ -1,12 +1,15 @@
 import express from "express";
 import mongoose from "mongoose";
+import dotenv from "dotenv";
 import Cards from "./dbCards.js";
 import Cors from "cors";
+
+dotenv.config();
 
 // App Config
 const app = express();
 const port = process.env.PORT || 8001; // port app gonna listen
-const connection_url = "<MongoDB URL>";
+const connection_url = process.env.MONGO_URI;
 
 // Middlewares
 app.use(express.json());
